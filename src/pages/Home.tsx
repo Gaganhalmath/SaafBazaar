@@ -117,7 +117,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">FreshMarket</span>?
+              Why Choose <span className="bg-gradient-primary bg-clip-text text-transparent">SaafBazaar</span>?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Built specifically for street food vendors and wholesale suppliers, 
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
                 Ready to Transform Your Business?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Join thousands of vendors and sellers already using FreshMarket to grow their business.
+                Join thousands of vendors and sellers already using SaafBazaar to grow their business.
               </p>
               
               {!user && (

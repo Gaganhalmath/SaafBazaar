@@ -73,7 +73,7 @@ const Register: React.FC = () => {
       });
       toast({
         title: "Account created!",
-        description: `Welcome to FreshMarket, ${formData.name}!`,
+        description: `Welcome to SaafBazaar, ${formData.name}!`,
       });
     } catch (error) {
       toast({
@@ -95,7 +95,7 @@ const Register: React.FC = () => {
             <Store className="w-6 h-6 text-primary-foreground" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            Join FreshMarket
+            Join SaafBazaar
           </h1>
           <p className="text-muted-foreground mt-2">
             Create your account to get started
