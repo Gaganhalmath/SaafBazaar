@@ -13,7 +13,7 @@ export interface Product {
   quality: 'gold' | 'verified' | 'standard';
   rating: number;
   category: 'vegetable' | 'packaged';
-  unit: 'kg' | 'pieces';
+  unit: 'kg' | 'pieces' | 'packets' | 'bottles' | 'bunches' | 'trays' | 'grams';
 }
 
 export interface CartItem {

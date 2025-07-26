@@ -23,7 +23,11 @@ import SellerProfile from "./pages/SellerProfile";
 import NotFound from "./pages/NotFound";
 
 
+
 import { useAuth } from "./components/auth/AuthProvider";
+import { BotPressButton } from "./components/ui/BotPressButton";
+
+
 
 // ProfileSwitcher component to choose correct profile page
 const ProfileSwitcher = () => {
@@ -36,37 +40,56 @@ const ProfileSwitcher = () => {
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <AuthProvider>
-        <CartProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <div className="min-h-screen bg-background">
-              <Navigation />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/marketplace" element={<Marketplace />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/seller/products" element={<ManageProducts />} />
-                <Route path="/seller/earnings" element={<EarningsDashboard />} />
-                <Route path="/profile" element={<ProfileSwitcher />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-          </BrowserRouter>
-        </CartProvider>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <div className="min-h-screen bg-background">
+                <Navigation />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/marketplace" element={<Marketplace />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="/seller/products" element={<ManageProducts />} />
+                  <Route path="/seller/earnings" element={<EarningsDashboard />} />
+                  <Route path="/profile" element={<ProfileSwitcher />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+
+    {/* Place your BotPress webchat link below */}
+    {/* Example: https://app.botpress.cloud/webchat/v1?botId=YOUR_BOT_ID */}
+    {/* Only show the button if the user is logged in */}
+                <BotPressWrapper />
+  </div>
+</BrowserRouter>
+          </CartProvider>
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
+
+
 
 export default App;
+
+// Wrapper to use useAuth for BotPressButton, so hooks are only called inside provider
+// Wrapper to use useAuth for BotPressButton, so hooks are only called inside provider
+function BotPressWrapper() {
+  const { user } = useAuth();
+  if (!user) return null;
+  return <BotPressButton />;
+}
