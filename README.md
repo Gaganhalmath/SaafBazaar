@@ -32,6 +32,12 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
+# Step 3.1: Install lucide-react (for icons)
+npm install lucide-react
+
+# Note: React's useState and useEffect hooks are included with React. If you need to update or reinstall React:
+npm install react
+
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
