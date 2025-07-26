@@ -74,12 +74,20 @@ export const Navigation: React.FC = () => {
                     Dashboard
                   </Link>
                   <Link
-                    to="/products"
+                    to="/seller/products"
                     className={`text-sm font-medium transition-colors hover:text-primary ${
-                      isActive('/products') ? 'text-primary' : 'text-muted-foreground'
+                      isActive('/seller/products') ? 'text-primary' : 'text-muted-foreground'
                     }`}
                   >
                     My Products
+                  </Link>
+                  <Link
+                    to="/seller/earnings"
+                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                      isActive('/seller/earnings') ? 'text-primary' : 'text-muted-foreground'
+                    }`}
+                  >
+                    Earnings
                   </Link>
                 </>
               )}
