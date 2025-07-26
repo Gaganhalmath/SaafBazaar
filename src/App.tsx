@@ -16,7 +16,23 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import Orders from "./pages/Orders";
 import ManageProducts from "./pages/seller/ManageProducts";
 import EarningsDashboard from "./pages/seller/EarningsDashboard";
+
+import Profile from "./pages/Profile";
+import VendorProfile from "./pages/VendorProfile";
+import SellerProfile from "./pages/SellerProfile";
 import NotFound from "./pages/NotFound";
+
+
+import { useAuth } from "./components/auth/AuthProvider";
+
+// ProfileSwitcher component to choose correct profile page
+const ProfileSwitcher = () => {
+  const { user } = useAuth();
+  if (!user) return <Profile />;
+  if (user.role === "vendor") return <VendorProfile />;
+  if (user.role === "seller") return <SellerProfile />;
+  return <Profile />;
+};
 
 const queryClient = new QueryClient();
 
@@ -41,6 +57,7 @@ const App = () => (
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/seller/products" element={<ManageProducts />} />
                 <Route path="/seller/earnings" element={<EarningsDashboard />} />
+                <Route path="/profile" element={<ProfileSwitcher />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
