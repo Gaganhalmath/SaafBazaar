@@ -56,9 +56,9 @@ const Home: React.FC = () => {
           <div className="space-y-6 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Fresh
+                Saaf
               </span>
-              <span className="text-foreground">Market</span>
+              <span className="text-foreground">Bazaar</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                   </Link>
                 </>
               ) : (
-                <Link to={user.role === 'vendor' ? '/marketplace' : '/dashboard'}>
+                <Link to={user.role === 'vendor' ? '/marketplace' : '/seller/products'}>
                   <Button variant="hero" size="xl">
                     {user.role === 'vendor' ? 'Browse Products' : 'Manage Products'}
                   </Button>

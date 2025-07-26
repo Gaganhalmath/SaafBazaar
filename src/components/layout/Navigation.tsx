@@ -66,14 +66,6 @@ export const Navigation: React.FC = () => {
               {user.role === 'seller' && (
                 <>
                   <Link
-                    to="/dashboard"
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
-                      isActive('/dashboard') ? 'text-primary' : 'text-muted-foreground'
-                    }`}
-                  >
-                    Dashboard
-                  </Link>
-                  <Link
                     to="/seller/products"
                     className={`text-sm font-medium transition-colors hover:text-primary ${
                       isActive('/seller/products') ? 'text-primary' : 'text-muted-foreground'
