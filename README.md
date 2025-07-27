@@ -132,9 +132,6 @@ npm start
 ## 📽️ Project Links
 
 - 🔗 **Live Web App**: [https://saafbazzar.vercel.app](https://saaf-bazaar-26gf.vercel.app/)  
-- 🎥 **Demo Video**: [https://youtu.be/your-video-link](https://youtu.be/your-video-link)  
-- 💻 **GitHub Repo**: [https://github.com/your-username/saafbazzar](https://github.com/your-username/saafbazzar)
-
 ---
 
 ## 🏁 Submission Checklist
@@ -151,7 +148,7 @@ npm start
 
 > We shared our build journey, vendor conversations, AI integration trials, and what it meant to solve a hyperlocal real-world problem. Read more here:
 
-🔗 [Our LinkedIn Hackathon Reflection Post](https://linkedin.com/in/your-profile)
+🔗 [Our LinkedIn Hackathon Reflection Post]((https://www.linkedin.com/in/anantinamdar77/))
 
 ---
 
