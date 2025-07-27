@@ -1,79 +1,75 @@
-# Welcome to your Lovable project
+Welcome to SaafBazaar
+Project Info
+URL: https://lovable.dev/projects/e2b8d9b4-9fbf-4487-bb2e-0121ba84a90d
 
-## Project info
+How Does SaafBazaar Solve the Problem?
+SaafBazaar tackles the unique supply-chain and quality challenges faced by street food vendors and raw material suppliers in local markets:
 
-**URL**: https://lovable.dev/projects/e2b8d9b4-9fbf-4487-bb2e-0121ba84a90d
+Trusted Sourcing: Vendors struggle to find reliable, hygienic raw materials at fair prices. SaafBazaar connects them to a vetted marketplace of local wholesale sellers, highlighting products that have passed hygiene and quality checks (with a Golden Star badge).
 
-## How can I edit this code?
+Smarter Discovery: Vendors can simply search for ingredients or enter a dish name (e.g., “Panipuri”), and the platform automatically provides all required materials—ensuring efficiency and fewer missed essentials.
 
-There are several ways of editing your application.
+Real Transparency: Each product comes with hygiene verification, seller certification, and concise review summaries from other vendors.
 
-**Use Lovable**
+Effortless Ordering and Reordering: Users benefit from powerful filters (location, price, badge), instant "add to cart," order tracking, and a "Buy Again" feature for one-tap repeat orders.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e2b8d9b4-9fbf-4487-bb2e-0121ba84a90d) and start prompting.
+Empowering Sellers: Sellers list products with photos and relevant documents, boosting credibility and reach, and get real-time order and inventory management tools.
 
-Changes made via Lovable will be committed automatically to this repo.
+This ecosystem builds trust, reduces risk, and empowers both sellers and street food vendors to thrive in a more organized, safe, and competitive environment.
 
-**Use your preferred IDE**
+How AI Works Inside SaafBazaar
+SaafBazaar integrates an AI-driven assistant to elevate the end-to-end vendor experience:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Conversational Shopping Assistant: When a vendor types the name of a dish (like “Pav Bhaji”), the AI instantly matches it to required raw materials available from your current Marketplace listings.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Hygiene-First Recommendations: The assistant automatically prioritizes "Golden Star" items—those verified for hygiene—so vendors always have the safest options at their fingertips.
 
-Follow these steps:
+Personalized Product Suggestions: As items are added to the cart, the AI recommends similar or complementary supplies, learns from previous shopping patterns, and dynamically adapts recommendations (e.g., best deals, repeat buys).
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Smart Filtering and Review Summaries: AI can filter by location, price, seller reputation, and badge status, and provides a review summary (rating, common feedback) for every item, helping vendors make informed choices quickly.
+
+Add-to-Cart Automation: When an item is selected in chat, it is instantly pushed to the vendor’s cart for a frictionless shopping flow.
+
+Multilingual Engagement: The assistant fluently engages in both English and Hindi, giving every vendor a seamless and supportive experience.
+
+In essence:
+The AI assistant in SaafBazaar makes it possible for even first-time vendors to shop safely, efficiently, and confidently—every time.
+
+Working with the Project
+How to Edit and Run the Code Locally
+Clone the repo:
+
+
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+Install dependencies:
 
-# Step 3: Install the necessary dependencies.
+
 npm i
-
-# Step 3.1: Install lucide-react (for icons)
 npm install lucide-react
-
-# Note: React's useState and useEffect hooks are included with React. If you need to update or reinstall React:
+# (Optional: update React if needed)
 npm install react
+Run the development server:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Run the project
 npm run dev
-```
+Make changes in your IDE:
+Open files in your favorite editor, change source code, and preview updates instantly via Vite’s fast dev server.
 
-**Edit a file directly in GitHub**
+Deployment:
+Deployment is Done using
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Edit Online:
+You can also edit files directly on GitHub or use GitHub Codespaces for a cloud-based development environment.
 
-**Use GitHub Codespaces**
+Tech Stack:
+ * Vite
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* TypeScript
+  
+* Javascript
 
-## What technologies are used for this project?
+* React
 
-This project is built with:
+* Tailwind CSS
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e2b8d9b4-9fbf-4487-bb2e-0121ba84a90d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
