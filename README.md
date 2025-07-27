@@ -131,7 +131,7 @@ npm start
 
 ## 📽️ Project Links
 
-- 🔗 **Live Web App**: [https://saafbazzar.vercel.app](https://saafbazzar.vercel.app)  
+- 🔗 **Live Web App**: [https://saafbazzar.vercel.app](https://saaf-bazaar-26gf.vercel.app/)  
 - 🎥 **Demo Video**: [https://youtu.be/your-video-link](https://youtu.be/your-video-link)  
 - 💻 **GitHub Repo**: [https://github.com/your-username/saafbazzar](https://github.com/your-username/saafbazzar)
 
