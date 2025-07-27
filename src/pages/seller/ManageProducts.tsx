@@ -19,6 +19,7 @@ const ManageProducts: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState('all');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [newProductImage, setNewProductImage] = useState<string | null>(null);
 
   // Load products from localStorage
   useEffect(() => {
@@ -115,10 +116,19 @@ const ManageProducts: React.FC = () => {
     });
   };
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setNewProductImage(reader.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleAddProduct = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
+
     const newProduct: Product = {
       id: Date.now().toString(),
       title: formData.get('title') as string,
@@ -130,7 +140,7 @@ const ManageProducts: React.FC = () => {
       location: 'Mumbai, Maharashtra',
       sellerId: user?.id || 'seller1',
       sellerName: user?.name || 'Your Business',
-      image: '/api/placeholder/300/200',
+      image: newProductImage || '/api/placeholder/300/200', // Use uploaded image or placeholder
       quality: formData.get('quality') as 'gold' | 'verified' | 'standard',
       rating: 4.0,
       category: formData.get('category') as 'vegetable' | 'packaged',
@@ -140,6 +150,7 @@ const ManageProducts: React.FC = () => {
     const updatedProducts = [...products, newProduct];
     saveProducts(updatedProducts);
     setIsAddDialogOpen(false);
+    setNewProductImage(null); // Reset image
     toast({
       title: "Product added",
       description: "Your new product has been successfully added.",
@@ -258,9 +269,28 @@ const ManageProducts: React.FC = () => {
                 </Select>
               </div>
               
+              <div>
+                <label className="text-sm font-medium">Product Image</label>
+                <div className="flex items-center gap-4 mt-2">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="block w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-muted file:text-primary"
+                  />
+                  {newProductImage && (
+                    <img
+                      src={newProductImage}
+                      alt="Preview"
+                      className="w-16 h-16 rounded-lg object-cover border"
+                    />
+                  )}
+                </div>
+              </div>
+              
               <div className="flex gap-3 pt-4">
                 <Button type="submit" className="flex-1">Add Product</Button>
-                <Button type="button" variant="outline" onClick={() => setIsAddDialogOpen(false)}>
+                <Button type="button" variant="outline" onClick={() => { setIsAddDialogOpen(false); setNewProductImage(null); }}>
                   Cancel
                 </Button>
               </div>
@@ -297,8 +327,16 @@ const ManageProducts: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="glass border-border/50 hover-glow overflow-hidden">
-            <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center">
-              <Package className="w-12 h-12 text-muted-foreground" />
+            <div className="aspect-video bg-muted rounded-t-lg flex items-center justify-center overflow-hidden">
+              {product.image && product.image !== '/api/placeholder/300/200' ? (
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <Package className="w-12 h-12 text-muted-foreground" />
+              )}
             </div>
             
             <CardContent className="p-6">
@@ -395,6 +433,36 @@ const ManageProducts: React.FC = () => {
                                 <SelectItem value="standard">Standard</SelectItem>
                               </SelectContent>
                             </Select>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <label className="text-sm font-medium">Product Image</label>
+                          <div className="flex items-center gap-4 mt-2">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  const reader = new FileReader();
+                                  reader.onload = () => {
+                                    setEditingProduct((prev) =>
+                                      prev ? { ...prev, image: reader.result as string } : prev
+                                    );
+                                  };
+                                  reader.readAsDataURL(file);
+                                }
+                              }}
+                              className="block w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-muted file:text-primary"
+                            />
+                            {editingProduct?.image && (
+                              <img
+                                src={editingProduct.image}
+                                alt="Preview"
+                                className="w-16 h-16 rounded-lg object-cover border"
+                              />
+                            )}
                           </div>
                         </div>
                         
